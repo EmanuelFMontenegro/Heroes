@@ -1,0 +1,9 @@
+/* dashboard-layout.component.scss */
+.dashboard-container {
+  display: flex;
+}
+
+.content-container {
+  flex: 1;
+  padding: 20px;
+}

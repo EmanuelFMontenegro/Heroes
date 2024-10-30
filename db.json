@@ -1,0 +1,109 @@
+{
+  "heroes": [
+    {
+      "id": "dc-batman",
+      "superhero": "Batman",
+      "description": "Batman usa su intelecto, habilidades de combate, tecnología avanzada, y gadgets para luchar contra el crimen en Gotham City, incansablemente."
+    },
+    {
+      "id": "dc-superman",
+      "superhero": "Superman",
+      "description": "Superman tiene fuerza sobrehumana, vuelo, visión láser, y resistencia, y lucha por la justicia y la paz del mundo."
+    },
+    {
+      "id": "dc-flash",
+      "superhero": "Flash",
+      "description": "Flash se mueve a velocidades increíbles, incluso superando la luz, permitiéndole atravesar paredes, viajar en el tiempo, y más."
+    },
+    {
+      "id": "dc-green",
+      "superhero": "Green Lantern",
+      "description": "Green Lantern tiene un anillo de poder que puede crear construcciones de energía y permite viajar a través del espacio."
+    },
+    {
+      "id": "dc-arrow",
+      "superhero": "Green Arrow",
+      "description": "Green Arrow es un arquero experto que usa flechas trucadas, y una gran habilidad táctica, para luchar contra el crimen."
+    },
+    {
+      "id": "dc-wonder",
+      "superhero": "Wonder Woman",
+      "description": "Wonder Woman tiene fuerza sobrehumana, habilidades de lucha, y el Lazo de la Verdad que obliga a decir la verdad."
+    },
+    {
+      "id": "dc-martian",
+      "superhero": "Martian Manhunter",
+      "description": "Martian Manhunter tiene habilidades telepáticas, puede cambiar de forma, y posee una gran fuerza sobrehumana, además de volar."
+    },
+    {
+      "id": "dc-robin",
+      "superhero": "Robin/Nightwing",
+      "description": "Robin es un experto acróbata y luchador, aliado de Batman. Luego, se convierte en Nightwing, luchando independientemente."
+    },
+    {
+      "id": "dc-blue",
+      "superhero": "Blue Beetle",
+      "description": "Blue Beetle usa un escarabajo alienígena que le otorga una armadura avanzada, con habilidades de energía y vuelo tecnológico."
+    },
+    {
+      "id": "dc-black",
+      "superhero": "Black Canary",
+      "description": "Black Canary es una luchadora experta, con un grito sónico devastador llamado 'Canary Cry', capaz de aturdir enemigos."
+    },
+    {
+      "id": "marvel-spider",
+      "superhero": "Spider Man",
+      "description": "Spider Man tiene fuerza mejorada, agilidad extrema, y la habilidad de trepar paredes, además de un 'sentido arácnido' muy efectivo."
+    },
+    {
+      "id": "marvel-captain",
+      "superhero": "Captain America",
+      "description": "Captain America tiene fuerza y agilidad mejoradas por el suero del supersoldado, y usa un escudo indestructible para luchar."
+    },
+    {
+      "id": "marvel-iron",
+      "superhero": "Iron Man",
+      "description": "Iron Man usa una armadura avanzada que le permite volar, tener fuerza aumentada, y varias armas tecnológicas potentes."
+    },
+    {
+      "id": "marvel-thor",
+      "superhero": "Thor",
+      "description": "Thor, dios del trueno, utiliza su martillo Mjolnir para volar, controlar rayos, y luchar con su enorme poder divino."
+    },
+    {
+      "id": "marvel-hulk",
+      "superhero": "Hulk",
+      "description": "Hulk tiene una fuerza y resistencia sobrehumanas que aumentan con su enojo, convirtiéndolo en una fuerza casi imparable."
+    },
+    {
+      "id": "marvel-wolverine",
+      "superhero": "Wolverine",
+      "description": "Wolverine tiene garras de adamantium, un factor de curación rápido, y habilidades sobrehumanas de lucha."
+    },
+    {
+      "id": "marvel-daredevil",
+      "superhero": "Daredevil",
+      "description": "Daredevil es ciego pero tiene sentidos mejorados, permitiéndole ver a través del sonido y es un gran luchador."
+    },
+    {
+      "id": "marvel-hawkeye",
+      "superhero": "Hawkeye",
+      "description": "Hawkeye es un arquero increíblemente hábil, con puntería precisa, usa diferentes tipos de flechas."
+    },
+    {
+      "id": "marvel-cyclops",
+      "superhero": "Cyclops",
+      "description": "Cyclops emite potentes rayos ópticos que controla con un visor de rubí, siendo un líder natural entre los X-Men."
+    },
+    {
+      "id": "marvel-silver",
+      "superhero": "Silver Surfer",
+      "description": "Silver Surfer posee el Poder Cósmico, permitiéndole manipular energía, viajar a través del espacio, y tener gran resistencia."
+    },
+    {
+      "id": "Carlos",
+      "superhero": "Manolo",
+      "description": "Este Super heroe es de los mas salvajes"
+    }
+  ]
+}

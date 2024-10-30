@@ -1,0 +1,23 @@
+<div class="edit-hero">
+  <h2>Editar Héroe</h2>
+  <form [formGroup]="heroForm" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="fill">
+      <mat-label>ID</mat-label>
+      <input matInput formControlName="id" required readonly />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Nombre del Héroe</mat-label>
+      <input matInput formControlName="superhero" required />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Descripción</mat-label>
+      <textarea matInput formControlName="description" required maxlength="100"></textarea>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit" [disabled]="heroForm.invalid">
+      Actualizar Héroe
+    </button>
+  </form>
+</div>

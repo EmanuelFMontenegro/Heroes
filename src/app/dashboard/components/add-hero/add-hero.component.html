@@ -1,0 +1,34 @@
+<div class="add-hero">
+  <h2>Agregar Nuevo Héroe</h2>
+  <form [formGroup]="heroForm" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="fill">
+      <mat-label>ID</mat-label>
+      <input matInput formControlName="id" required />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Nombre del Héroe</mat-label>
+      <input matInput formControlName="superhero" required />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>URL de la Imagen</mat-label>
+      <input matInput formControlName="image" />
+    </mat-form-field>
+
+    <!-- Imagen previa que mostrará la imagen seleccionada o una predeterminada -->
+    <div class="image-preview">
+      <img [src]="heroForm.get('image')?.value || '/img/dc-superman.jpg'" alt="Vista previa del héroe"
+        class="hero-image-small" />
+    </div>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Descripción</mat-label>
+      <textarea matInput formControlName="description" required maxlength="100"></textarea>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit" [disabled]="heroForm.invalid">
+      Agregar Héroe
+    </button>
+  </form>
+</div>

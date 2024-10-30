@@ -1,11 +1,14 @@
 import { Routes } from '@angular/router';
-
-const routes: Routes = [
+import { DashboardLayoutComponent } from './layouts/dashboard-layout/dashboard-layout.component';
+import { DashboardRoutingModule } from './dashboard/dashboard-routing.module';
+export const routes: Routes = [
   {
-    path: 'heroes',
+    path: 'dashboard',
     loadChildren: () =>
-      import('./heroes/heroes.module').then((m) => m.HeroesModule),
+      import('./dashboard/dashboard.module').then((m) => m.DashboardModule),
   },
-  { path: '', redirectTo: '/heroes', pathMatch: 'full' },
+  { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+  { path: '**', redirectTo: 'dashboard' },
+
   { path: '**', redirectTo: '/heroes' },
 ];

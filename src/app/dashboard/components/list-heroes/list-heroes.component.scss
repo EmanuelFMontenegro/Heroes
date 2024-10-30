@@ -1,0 +1,116 @@
+.list-heroes {
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: #333;
+  }
+
+  .heroes-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+
+  .hero-card {
+    width: 320px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: #f9f9f9;
+    border: 2px solid #f53636;
+
+    &:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+  }
+
+  .hero-avatar img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
+
+  .hero-image {
+    height: 330px;
+    object-fit: fill;
+    border: 2px solid #f53636;
+    margin: 10px;
+    border-radius: 10px;
+  }
+
+  mat-card-content {
+    min-height: 60px;
+  }
+
+  .action_btn {
+    color: #67748e !important;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 8px 10px;
+    font-size: 14px;
+    transition: background 0.3s ease, color 0.3s ease;
+
+    mat-icon {
+      color: #67748e;
+      position: relative;
+      top: 3px;
+      right: 2px;
+      transition: color 0.3s ease;
+      font-size: 18px; /* Ajustar el tamaño del ícono */
+    }
+  }
+
+  .btn_editar {
+    border-radius: 5px;
+    background: #ffffff;
+    border: 2px solid #3c0bde;
+    width: 35%;
+    padding: 5px; /* Espaciado interno para mayor clicabilidad */
+    display: flex; /* Asegurarse de que los íconos y texto estén alineados */
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease, color 0.3s ease;
+
+    &:hover,
+    &:focus {
+      background: #3c0bde;
+      color: #ffffff;
+
+      mat-icon {
+        color: #ffffff;
+      }
+    }
+  }
+
+  .btn_eliminar {
+    border-radius: 5px;
+    background: #ffffff;
+    border: 2px solid #f53636;
+    width: 35%;
+    padding: 5px; /* Espaciado interno para mayor clicabilidad */
+    display: flex; /* Asegurarse de que los íconos y texto estén alineados */
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease, color 0.3s ease;
+
+    &:hover,
+    &:focus {
+      background: #f53636;
+      color: #ffffff;
+
+      mat-icon {
+        color: #ffffff;
+      }
+    }
+  }
+
+  .pagination {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    position: relative;
+  }
+}

@@ -1,0 +1,45 @@
+/* detail-hero.component.scss */
+.detail-hero {
+  .hero-card {
+    display: flex;
+    margin-bottom: 20px;
+
+    .hero-image img {
+      width: 200px;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    .hero-info {
+      margin-left: 20px;
+    }
+  }
+
+  .comics-section {
+    h3 {
+      margin-bottom: 10px;
+    }
+
+    .comics-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+
+      .comic-item {
+        width: 150px;
+        text-align: center;
+
+        img {
+          width: 100%;
+          height: auto;
+          border-radius: 8px;
+        }
+
+        p {
+          font-size: 14px;
+          margin-top: 5px;
+        }
+      }
+    }
+  }
+}

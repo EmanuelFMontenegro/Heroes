@@ -1,0 +1,34 @@
+<div class="hero-list">
+
+
+  <table mat-table [dataSource]="filteredHeroes.slice(currentPage * pageSize, (currentPage + 1) * pageSize)"
+    class="mat-elevation-z8">
+    <!-- Nombre Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Nombre </th>
+      <td mat-cell *matCellDef="let hero"> {{ hero.name }} </td>
+    </ng-container>
+
+    <!-- Alias Column -->
+    <ng-container matColumnDef="alias">
+      <th mat-header-cell *matHeaderCellDef> Alias </th>
+      <td mat-cell *matCellDef="let hero"> {{ hero.alias }} </td>
+    </ng-container>
+
+    <!-- Superpoder Column -->
+    <ng-container matColumnDef="superpower">
+      <th mat-header-cell *matHeaderCellDef> Superpoder </th>
+      <td mat-cell *matCellDef="let hero"> {{ hero.superpower }} </td>
+    </ng-container>
+
+    <!-- Acciones Column -->
+
+
+    <tr mat-header-row *matHeaderRowDef="['name', 'alias', 'superpower', 'actions']"></tr>
+    <tr mat-row *matRowDef="let row; columns: ['name', 'alias', 'superpower', 'actions'];"></tr>
+  </table>
+
+  <mat-paginator [length]="totalHeroes" [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 20]"
+    (page)="onPageChange($event)">
+  </mat-paginator>
+</div>

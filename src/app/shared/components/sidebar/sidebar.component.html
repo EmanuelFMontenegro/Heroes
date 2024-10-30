@@ -1,0 +1,19 @@
+
+<div class="sidebar">
+  <div class="logo-container">
+    <h4>Super Héroes</h4>
+  </div>
+
+  <ul class="nav-list">
+    <li
+      *ngFor="let item of menuItems"
+      class="nav-item"
+      routerLinkActive="active"
+      [routerLink]="item.path"
+      (click)="setActive(item.title)"
+    >
+      <mat-icon>{{ item.icon }}</mat-icon>
+      {{ item.title }}
+    </li>
+  </ul>
+</div>

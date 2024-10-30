@@ -1,6 +1,6 @@
 
-@import 'styles/mixins';
-
+/* styles.scss */
+@import 'ngx-toastr/toastr';
 @mixin respond-to($breakpoint) {
   @if $breakpoint == 'small' {
     @media (max-width: 600px) {
@@ -16,3 +16,9 @@
     }
   }
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/* Importing Bootstrap SCSS file. */
+@import 'bootstrap/scss/bootstrap';
