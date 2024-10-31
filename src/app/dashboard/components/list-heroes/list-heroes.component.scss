@@ -1,16 +1,15 @@
 .list-heroes {
   h2 {
     text-align: center;
-    margin-bottom: 20px;
-    font-weight: bold;
-    color: #333;
+    color: #67748e;
+    margin-bottom: 6px;
   }
 
   .heroes-grid {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
-    justify-content: center;
+    justify-content: space-around;
   }
 
   .hero-card {
@@ -26,22 +25,187 @@
     }
   }
 
-  .hero-avatar img {
+  .hero-avatar img {.list-heroes {
+    h2 {
+      text-align: center;
+      color: #67748e;
+      margin-bottom: 6px;
+    }
+
+    .heroes-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: space-around;
+    }
+
+    .hero-card {
+      width: 320px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      background-color: #f9f9f9;
+      border: 2px solid #f53636;
+
+      &:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      }
+    }
+
+    /* Nueva clase para imagen de tarjeta */
+    .card-image {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+      border: 2px solid #f53636;
+    }
+
+    .hero-avatar img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+    }
+
+    .hero-image {
+      width: 70%;
+      height: 300px;
+      object-fit: cover;
+      object-position: center;
+      border: 2px solid #f53636;
+      border-radius: 10px;
+      display: block;
+      margin: 0 auto;
+    }
+
+    mat-card-content {
+      min-height: 60px;
+    }
+
+    /* Limitar la descripción a 4 líneas */
+    .description {
+      display: -webkit-box;
+      -webkit-line-clamp: 4;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-height: 6em; /* Ajustar altura según el número de líneas */
+    }
+
+    .action_btn {
+      color: #67748e !important;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      padding: 8px 10px;
+      font-size: 14px;
+      transition: background 0.3s ease, color 0.3s ease;
+
+      mat-icon {
+        color: #67748e;
+        position: relative;
+        right: 2px;
+        transition: color 0.3s ease;
+        font-size: 18px;
+      }
+    }
+
+    .btn_editar {
+      border-radius: 5px;
+      background: #ffffff;
+      color: #67748e;
+      border: 2px solid #3c0bde; /* Borde azul */
+      width: 35%;
+      padding: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+
+      &:hover,
+      &:focus {
+        background: #3c0bde;
+        color: #ffffff;
+        box-shadow: 0 0 8px #3c0bde;
+      }
+
+      &:active {
+        background: #3c0bde;
+        color: #ffffff;
+        box-shadow: 0 0 12px #3c0bde;
+
+        mat-icon {
+          color: #ffffff;
+        }
+      }
+    }
+
+    .btn_eliminar {
+      border-radius: 5px;
+      background: #ffffff;
+      color: #67748e;
+      border: 2px solid #f53636;
+      width: 35%;
+      padding: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+
+      &:hover,
+      &:focus {
+        background: #f53636;
+        color: #ffffff;
+        box-shadow: 0 0 8px #f53636;
+      }
+
+      &:active {
+        background: #f53636;
+        color: #ffffff;
+        box-shadow: 0 0 12px #f53636;
+
+        mat-icon {
+          color: #ffffff;
+        }
+      }
+    }
+
+    .pagination {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+    }
+  }
+
     width: 40px;
     height: 40px;
     border-radius: 50%;
   }
 
   .hero-image {
-    height: 330px;
-    object-fit: fill;
+    width: 70%;
+    height: 300px;
+    object-fit: cover;
+    object-position: center;
     border: 2px solid #f53636;
-    margin: 10px;
     border-radius: 10px;
+    display: block;
+    margin: 0 auto;
   }
+
 
   mat-card-content {
     min-height: 60px;
+  }
+
+  /* Limitar la descripción a 4 líneas */
+  .description {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-height: 6em; /* Ajustar altura según el número de líneas */
   }
 
   .action_btn {
@@ -56,56 +220,100 @@
     mat-icon {
       color: #67748e;
       position: relative;
-      top: 3px;
       right: 2px;
       transition: color 0.3s ease;
-      font-size: 18px; /* Ajustar el tamaño del ícono */
+      font-size: 18px;
     }
   }
 
   .btn_editar {
     border-radius: 5px;
     background: #ffffff;
-    border: 2px solid #3c0bde;
+    color: #67748e;
+    border: 2px solid #3c0bde; /* Borde azul */
     width: 35%;
-    padding: 5px; /* Espaciado interno para mayor clicabilidad */
-    display: flex; /* Asegurarse de que los íconos y texto estén alineados */
+    padding: 5px;
+    display: flex;
     align-items: center;
     justify-content: center;
-    transition: background 0.3s ease, color 0.3s ease;
+    transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
 
     &:hover,
     &:focus {
-      background: #3c0bde;
+      background: #3c0bde; /* Fondo azul al enfocar o hacer hover */
       color: #ffffff;
+      box-shadow: 0 0 8px #3c0bde; /* Sombra azul */
+    }
+
+    &:active {
+      background: #3c0bde; /* Fondo azul mientras se presiona */
+      color: #ffffff;
+      box-shadow: 0 0 12px #3c0bde; /* Sombra más intensa al hacer clic */
 
       mat-icon {
         color: #ffffff;
       }
+    }
+
+    &:not(:active) {
+      background: #ffffff; /* Volver al fondo blanco */
+      color: #67748e;
     }
   }
 
   .btn_eliminar {
     border-radius: 5px;
     background: #ffffff;
-    border: 2px solid #f53636;
+    color: #67748e;
+    border: 2px solid #f53636; /* Borde rojo */
     width: 35%;
-    padding: 5px; /* Espaciado interno para mayor clicabilidad */
-    display: flex; /* Asegurarse de que los íconos y texto estén alineados */
+    padding: 5px;
+    display: flex;
     align-items: center;
     justify-content: center;
-    transition: background 0.3s ease, color 0.3s ease;
+    transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
 
     &:hover,
     &:focus {
-      background: #f53636;
+      background: #f53636; /* Fondo rojo al enfocar o hacer hover */
       color: #ffffff;
+      box-shadow: 0 0 8px #f53636; /* Sombra roja */
+
+
+    }
+
+    &:active {
+      background: #f53636; /* Fondo rojo mientras se presiona */
+      color: #ffffff;
+      box-shadow: 0 0 12px #f53636; /* Sombra más intensa al hacer clic */
 
       mat-icon {
         color: #ffffff;
       }
+
     }
+
+    &:not(:active) {
+      background: #ffffff; /* Volver al fondo blanco */
+      color: #67748e;
+    }
+
   }
+
+  .color {
+    color: #67748e;
+    transition: color 0.3s ease;
+
+    .btn_editar:active & {
+      color: #ffffff; /* Texto blanco mientras se presiona el botón Editar */
+    }
+
+    .btn_eliminar:active & {
+      color: #ffffff; /* Texto blanco mientras se presiona el botón Eliminar */
+    }
+
+  }
+
 
   .pagination {
     margin-top: 20px;

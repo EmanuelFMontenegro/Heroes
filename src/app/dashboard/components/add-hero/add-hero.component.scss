@@ -1,32 +1,100 @@
-.add-hero {
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 20px;
-  background-color: #ffffff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-}
-
-h2 {
-  text-align: center;
-  margin-bottom: 20px;
-  color: #3f51b5;
-}
-
-form {
+.edit-hero-container {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
 }
 
-mat-form-field {
+.hero-title {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #67748e;
+}
+
+.hero-form {
   width: 100%;
+  height: 35em;
+  max-width: 70em;
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+  bottom: 1em;
+  border:2px solid #f53636
 }
 
-button {
-  align-self: center;
-  width: 50%;
+.input-container {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+
+}
+
+input,
+textarea {
+  width: 100%;
   padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+
+  &:focus {
+    outline: none;
+    border-color: #f53636;
+    box-shadow: 0 0 8px #f53636;
+  }
+}
+
+textarea {
+  resize: none;
+  height: 100px;
+}
+input, textarea {
+  text-transform: uppercase;
+}
+
+
+.btns_form {
+  display: flex;
+  justify-content: space-around;
+}
+
+.btn_actualizar,
+.btn_cancelar {
+  width: 35%;
+  padding: 10px;
+  border-radius: 5px;
+  background: #ffffff;
+  border: 2px solid #f53636;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 8px #f53636;
+  }
+
+  &:active {
+    background: #f53636;
+  }
+
+  &:not(:active) {
+    background: #ffffff;
+  }
+}
+
+.color {
+  color: #67748e; /* Color gris por defecto */
+  transition: color 0.3s ease; /* Transición suave del color */
+
+  .btn_actualizar:active &,
+  .btn_cancelar:active & {
+    color: #ffffff;
+  }
 }
 
 .image-preview {
@@ -40,14 +108,4 @@ button {
   height: auto;
   border-radius: 8px;
   border: 2px solid #3f51b5;
-}
-
-@media (max-width: 600px) {
-  .add-hero {
-    padding: 10px;
-  }
-
-  button {
-    width: 100%;
-  }
 }

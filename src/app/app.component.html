@@ -1,1 +1,12 @@
+<ngx-spinner
+  bdColor="rgba(0, 0, 0, 0.8)"
+  size="medium"
+  color="#fff"
+  type="ball-beat"
+  [fullScreen]="true"
+  *ngIf="loading$ | async">
+  <p style="color: #f53636">Loading...</p>
+</ngx-spinner>
+
+
 <router-outlet />

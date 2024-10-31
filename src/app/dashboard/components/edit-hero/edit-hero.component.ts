@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { HeroService, Hero } from '../../../services/hero.service';
+import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { HeroService } from '../../../services/hero.service';
+import { ToastrService } from 'ngx-toastr';
+import { Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule } from '@angular/forms';
-import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
-import { ToastrService } from 'ngx-toastr';
-import { RouterModule,Router } from '@angular/router';
+import { MatCardModule } from '@angular/material/card';
+import { Hero } from '../../../models/hero.models';
 
 @Component({
   selector: 'app-edit-hero',
@@ -17,10 +17,10 @@ import { RouterModule,Router } from '@angular/router';
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    MatFormFieldModule,
     MatInputModule,
+    MatCardModule,
     MatButtonModule,
-    RouterModule
+    RouterModule,
   ],
 })
 export class EditHeroComponent implements OnInit {
@@ -32,11 +32,11 @@ export class EditHeroComponent implements OnInit {
     private toastr: ToastrService,
     private router: Router
   ) {
-    // Crear el formulario y deshabilitar el campo 'id' para que no sea editable
     this.heroForm = this.fb.group({
-      id: [{ value: '', disabled: true }, Validators.required],
-      superhero: ['', Validators.required],
-      description: ['', [Validators.required, Validators.maxLength(100)]],
+      id: [{ value: '', disabled: true }], // Habilitar ID pero no editable
+      superhero: [''], // Sin validación
+      description: [''], // Sin validación
+      comic: ['dc-bop'], // Valor predeterminado para el comic
     });
   }
 
@@ -44,34 +44,25 @@ export class EditHeroComponent implements OnInit {
     const heroData = localStorage.getItem('heroData');
     if (heroData) {
       const hero: Hero = JSON.parse(heroData);
-
-      // Verificar si los datos son correctos antes de rellenar el formulario
-      if (hero && hero.id && hero.superhero && hero.description) {
-        this.heroForm.patchValue(hero);
-      } else {
-        console.error(
-          'Los datos del héroe están incompletos o son incorrectos:',
-          hero
-        );
-      }
+      if (hero) this.heroForm.patchValue(hero);
     }
   }
 
   onSubmit(): void {
-    if (this.heroForm.valid) {
-      const heroData = this.heroForm.getRawValue(); // Obtener los valores, incluido el campo 'id' deshabilitado
-      this.heroService.updateHero(heroData).subscribe({
-        next: () => {
-          this.toastr.success(
-            'Héroe actualizado con éxito',
-            'Actualización Exitosa'
-          );
-          this.router.navigate(['dashboard/list-hero'])
-        },
-        error: (err) => {
-          this.toastr.error('Error al actualizar el héroe: ' + err, 'Error');
-        },
-      });
-    }
+    // Aquí ya no se verifican validaciones
+    const heroData = this.heroForm.getRawValue();
+    this.heroService.updateHero(heroData).subscribe({
+      next: () => {
+        this.toastr.success('Héroe actualizado con éxito', 'Éxito');
+        this.router.navigate(['dashboard/list-hero']);
+      },
+      error: (err) => {
+        this.toastr.error('Error al actualizar el héroe: ' + err, 'Error');
+      },
+    });
+  }
+
+  cancelar() {
+    this.router.navigate(['dashboard/lits-heroes']);
   }
 }

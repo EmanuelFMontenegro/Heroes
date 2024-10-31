@@ -1,50 +1,128 @@
-.edit-hero {
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 20px;
-  background-color: #ffffff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-}
-
-h2 {
-  text-align: center;
-  margin-bottom: 20px;
-  color: #3f51b5;
-}
-
-form {
+.edit-hero-container {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  padding: 20px;
 }
 
-mat-form-field {
+.hero-title {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #67748e;
+}
+
+.hero-form {
   width: 100%;
+  height: 100%;
+  max-width: 70em;
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+  bottom: 1em;
+  border:2px solid #f53636
 }
 
-button {
-  align-self: center;
-  width: 50%;
+.input-container {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+input,
+textarea {
+  width: 100%;
   padding: 10px;
-  transition: background-color 0.3s ease;
-}
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
 
-button:disabled {
-  background-color: #d3d3d3;
-}
-
-button:hover:not(:disabled) {
-  background-color: #303f9f;
-  color: #ffffff;
-}
-
-@media (max-width: 600px) {
-  .edit-hero {
-    padding: 10px;
-  }
-
-  button {
-    width: 100%;
+  &:focus {
+    outline: none;
+    border-color: #f53636;
+    box-shadow: 0 0 8px #f53636;
   }
 }
+
+
+textarea {
+  resize: none;
+  height: 100px;
+}
+.btns_form{
+  display: flex;
+  justify-content: space-around;
+}
+.btn_actualizar,
+.btn_cancelar {
+  width: 35%;
+  padding: 10px;
+  border-radius: 5px;
+  background: #ffffff;
+  border: 2px solid #f53636;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+
+  /* Sombra cuando está enfocado */
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 8px #f53636;
+  }
+
+  /* Fondo rojo mientras se presiona */
+  &:active {
+    background: #f53636;
+  }
+
+  /* Volver al fondo blanco al soltar */
+  &:not(:active) {
+    background: #ffffff;
+  }
+}
+
+.color {
+  color: #67748e; /* Color gris por defecto */
+  transition: color 0.3s ease; /* Transición suave del color */
+
+  /* Cambiar a blanco mientras se presiona */
+  .btn_actualizar:active &,
+  .btn_cancelar:active & {
+    color: #ffffff;
+  }
+
+
+.heroes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 15px;
+  width: 100%;
+  max-width: 800px;
+  margin-top: 20px;
+}
+
+.hero-card mat-card {
+  width: 100%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.heroes-grid {
+  max-height: 400px; /* Altura para dos filas aprox. */
+  overflow-y: auto;  /* Scroll si hay más héroes */
+}
+.img{
+  width: 20%;
+  height: auto;
+}
+.hero-avatar {
+  height: 40px;
+  width: 40px;
+  flex-shrink: 0;
+  display: flex;
+}
+
+}
+

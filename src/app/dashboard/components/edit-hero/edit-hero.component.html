@@ -1,23 +1,36 @@
-<div class="edit-hero">
-  <h2>Editar Héroe</h2>
-  <form [formGroup]="heroForm" (ngSubmit)="onSubmit()">
-    <mat-form-field appearance="fill">
-      <mat-label>ID</mat-label>
-      <input matInput formControlName="id" required readonly />
-    </mat-form-field>
+<div class="edit-hero-container">
+  <h2 class="hero-title">Actualizar un Héroe</h2>
+  <form [formGroup]="heroForm" (ngSubmit)="onSubmit()" class="hero-form">
 
-    <mat-form-field appearance="fill">
-      <mat-label>Nombre del Héroe</mat-label>
-      <input matInput formControlName="superhero" required />
-    </mat-form-field>
+    <div class="input-container">
+      <label>ID</label>
+      <input type="text" formControlName="id" readonly />
+    </div>
 
-    <mat-form-field appearance="fill">
-      <mat-label>Descripción</mat-label>
-      <textarea matInput formControlName="description" required maxlength="100"></textarea>
-    </mat-form-field>
+    <div class="input-container">
+      <label>Nombre del Héroe</label>
+      <input type="text" formControlName="superhero" />
+    </div>
 
-    <button mat-raised-button color="primary" type="submit" [disabled]="heroForm.invalid">
-      Actualizar Héroe
-    </button>
+    <div class="input-container">
+      <label>Descripción</label>
+      <textarea formControlName="description"></textarea>
+    </div>
+
+
+    <div class="input-container">
+      <label>Comic</label>
+      <input type="text" formControlName="comic" />
+    </div>
+
+    <div class="btns_form">
+      <button mat-button class="btn_cancelar" type="button" (click)="cancelar()">
+        <span class="color">Cancelar</span>
+      </button>
+
+      <button mat-button class="btn_actualizar" type="submit">
+        <span class="color">Actualizar Héroe</span>
+      </button>
+    </div>
   </form>
 </div>

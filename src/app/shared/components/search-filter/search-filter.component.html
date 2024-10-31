@@ -1,20 +1,33 @@
 <div class="search-bar">
-  <div class="search-bar-picker grow-1">
-    <mat-select class="FormInput size-48" [(ngModel)]="selectedOption" (selectionChange)="onSelectChange($event)">
-      <mat-option *ngFor="let option of options" [value]="option">{{ option }}</mat-option>
+  <!-- Mat-select de opciones con placeholder dinámico -->
+  <div class="search-bar-picker input-wrapper">
+    <mat-select class="FormInput size-48 input-field" [(ngModel)]="selectedOption" (selectionChange)="onSelectChange($event)">
+      <mat-option value="" disabled selected hidden>{{ primaryPlaceholder }}</mat-option>
+      <mat-option *ngFor="let option of options" [value]="option.value">{{ option.label }}</mat-option>
     </mat-select>
   </div>
 
-  <div class="search-bar-input grow-2">
-    <input class="FormInput grow-1 size-48" matInput placeholder="Ingrese texto" [(ngModel)]="searchText">
+  <!-- Input de texto o mat-select secundario con placeholder dinámico -->
+  <div class="search-bar-input input-wrapper">
+    <ng-container *ngIf="useMatSelect; else textInput">
+      <mat-select class="FormInput size-48 input-field" [(ngModel)]="selectedSecondaryOption">
+        <mat-option value="" disabled selected hidden>{{ secondaryPlaceholder }}</mat-option>
+        <mat-option *ngFor="let option of secondaryOptions" [value]="option">{{ option }}</mat-option>
+      </mat-select>
+    </ng-container>
+    <ng-template #textInput>
+      <input class="input-field" matInput [placeholder]="secondaryPlaceholder" [(ngModel)]="searchText">
+      <mat-icon class="search-icon">search</mat-icon>
+    </ng-template>
   </div>
 
+  <!-- Botones de limpiar y filtrar -->
   <div class="search-bar-buttons">
-    <button class="secondary-button-auto grow-1 size-48" mat-raised-button (click)="clearSearch()">
-      <mat-icon>clear</mat-icon> Limpiar
+    <button class="action-button clear-button" mat-raised-button (click)="clearSearch()">
+      <mat-icon>delete</mat-icon> Limpiar
     </button>
-    <button class="primary-button-auto grow-1 size-48" mat-raised-button (click)="applyFilter()">
-      <mat-icon>filter_list</mat-icon> Filtrar
+    <button class="action-button filter-button" mat-raised-button (click)="applyFilter()">
+      <mat-icon>filter_alt</mat-icon> Filtrar
     </button>
   </div>
 </div>

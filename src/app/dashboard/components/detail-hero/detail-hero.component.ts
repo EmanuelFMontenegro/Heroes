@@ -1,8 +1,8 @@
 // detail-hero.component.ts
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HeroService, Hero } from '../../../services/hero.service';
-
+import { HeroService } from '../../../services/hero.service';
+import { Hero } from '../../../models/hero.models';
 import { PageEvent } from '@angular/material/paginator';
 import { FormsModule } from '@angular/forms';
 import { MatPaginatorModule } from '@angular/material/paginator'; // Importa MatPaginatorModule
@@ -69,11 +69,18 @@ export class DetailHeroComponent implements OnInit {
     this.currentPage = event.pageIndex;
   }
 
-  deleteHero(hero: Hero): void {
-    if (confirm(`¿Estás seguro de que deseas eliminar a ${hero.superhero}?`)) {
-      this.heroService.deleteHero(hero.id).subscribe(() => {
-        this.loadHeroes();
-      });
-    }
-  }
+  // deleteHero(hero: Hero): void {
+  //   if (confirm(`¿Estás seguro de que deseas eliminar a ${hero.superhero}?`)) {
+  //     this.heroService.deleteHero(hero.id).subscribe(
+  //       () => {
+  //         this.toastr.success('Héroe eliminado exitosamente', 'Éxito');
+  //         this.loadHeroes(); // Recargar la lista de héroes
+  //       },
+  //       (error) => {
+  //         this.toastr.error('Error al eliminar el héroe', 'Error');
+  //       }
+  //     );
+
+  //   }
+  // }
 }

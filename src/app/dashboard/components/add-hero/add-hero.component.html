@@ -1,34 +1,33 @@
-<div class="add-hero">
-  <h2>Agregar Nuevo Héroe</h2>
-  <form [formGroup]="heroForm" (ngSubmit)="onSubmit()">
-    <mat-form-field appearance="fill">
-      <mat-label>ID</mat-label>
-      <input matInput formControlName="id" required />
-    </mat-form-field>
+<div class="edit-hero-container">
+  <h2 class="hero-title">Agregar Nuevo Héroe</h2>
+  <form [formGroup]="heroForm" (ngSubmit)="onSubmit()" class="hero-form">
 
-    <mat-form-field appearance="fill">
-      <mat-label>Nombre del Héroe</mat-label>
-      <input matInput formControlName="superhero" required />
-    </mat-form-field>
-
-    <mat-form-field appearance="fill">
-      <mat-label>URL de la Imagen</mat-label>
-      <input matInput formControlName="image" />
-    </mat-form-field>
-
-    <!-- Imagen previa que mostrará la imagen seleccionada o una predeterminada -->
-    <div class="image-preview">
-      <img [src]="heroForm.get('image')?.value || '/img/dc-superman.jpg'" alt="Vista previa del héroe"
-        class="hero-image-small" />
+    <div class="input-container">
+      <label>ID</label>
+      <input type="text" formControlName="id" />
     </div>
 
-    <mat-form-field appearance="fill">
-      <mat-label>Descripción</mat-label>
-      <textarea matInput formControlName="description" required maxlength="100"></textarea>
-    </mat-form-field>
+    <div class="input-container">
+      <label>Nombre del Héroe</label>
+      <input type="text" formControlName="superhero" />
+    </div>
+    <div class="input-container">
+      <label>Comic</label>
+      <input type="text" formControlName="comic" />
+    </div>
+    <div class="input-container">
+      <label>Descripción</label>
+      <textarea formControlName="description"></textarea>
+    </div>
 
-    <button mat-raised-button color="primary" type="submit" [disabled]="heroForm.invalid">
-      Agregar Héroe
-    </button>
+    <div class="btns_form">
+      <button mat-button class="btn_cancelar" type="button" (click)="cancelar()">
+        <span class="color">Cancelar</span>
+      </button>
+
+      <button mat-button class="btn_actualizar" type="submit" [disabled]="heroForm.invalid">
+        <span class="color">Agregar Héroe</span>
+      </button>
+    </div>
   </form>
 </div>
