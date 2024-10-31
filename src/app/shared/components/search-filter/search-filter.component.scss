@@ -1,86 +1,39 @@
+@import '../../shared-styles.scss';
+
 .search-bar {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-  margin-bottom: 20px;
+  @include search-bar-style;
 }
 
 .search-bar-picker,
 .search-bar-input {
-  flex: 1;
+  @include search-bar-item-style;
 }
 
 .input-field,
-.mat-select-trigger { /* Incluye estilos en el mat-select y el input */
-  width: 100%;
-  padding: 10px;
-  border: 2px solid #f53636;
-  border-radius: 5px;
-  font-size: 16px;
-  outline: none;
-  transition: box-shadow 0.3s ease;
-}
-
-.input-field:focus,
-.mat-select-trigger:focus { /* Aplica la sombra roja en foco */
-  box-shadow: 0 0 8px #f53636;
+.mat-select-trigger {
+  @include input-field-style;
 }
 
 .input-wrapper {
-  position: relative;
-  display: flex;
-  align-items: center;
+  @include input-wrapper-style;
 }
 
 .search-icon {
-  position: absolute;
-  right: 10px;
-  pointer-events: none;
-  color: #f53636;
+  @include search-icon-style;
 }
 
 .search-bar-buttons {
-  display: flex;
-  gap: 10px;
+  @include search-bar-buttons-style;
 }
 
 .action-button {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  padding: 10px;
-  border-radius: 5px;
-  border: 2px solid #f53636;
-  background-color: #fff;
-  color: #67748e;
-  cursor: pointer;
-  transition: box-shadow 0.3s, background-color 0.3s, color 0.3s;
-}
+  @include action-button-style;
 
-.action-button mat-icon {
-  font-size: 18px;
-  color: #67748e;
-  transition: color 0.3s;
-  position: relative;
-  top: 3px;
-}
+  &.clear-button {
+    @include clear-button-style;
+  }
 
-.action-button:active {
-  background-color: #f53636;
-  color: #fff;
-  box-shadow: 0 0 10px #f53636;
-}
-
-.action-button:active mat-icon {
-  color: #fff;
-}
-
-.clear-button {
-  background-color: #fff;
-  color: #67748e;
-}
-
-.filter-button {
-  background-color: #fff;
-  color: #67748e;
+  &.filter-button {
+    @include filter-button-style;
+  }
 }

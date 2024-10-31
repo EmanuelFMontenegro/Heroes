@@ -1,0 +1,620 @@
+/************************ MIXINS PARA MATDIALOG***********************************/
+
+@mixin dialog-style {
+  width: 100%;
+  width: 27em;
+  padding: 25px;
+  border-radius: 29px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border: 3px solid #f53636
+}
+
+// Mixin para estilos de tipografía
+@mixin typography($size, $weight: normal, $color: #67748e) {
+  font-size: $size;
+  font-weight: $weight;
+  color: $color;
+}
+
+
+// Mixin para botones
+@mixin button-style($border-color) {
+  background-color: #ffffff;
+  border: 2px solid $border-color;
+  color: $border-color;
+  padding: 5px;
+  border-radius: 8px;
+  transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    background-color: $border-color;
+    color: #ffffff;
+    box-shadow: 0 0 8px $border-color;
+  }
+}
+
+/********************MIXINS PARA SIDEBAR****************************************************/
+// Define todos los mixins en el nivel raíz
+@mixin sidebar-toggle-style {
+  display: none;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 100;
+
+  @media (max-width: 768px) {
+    display: block;
+  }
+}
+@mixin nav-list-style {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+@mixin sidebar-style($width: 260px, $bg-color: white, $shadow-color: rgba(0, 0, 0, 0.1)) {
+  width: $width;
+  height: 100vh;
+  background-color: $bg-color;
+  box-shadow: 0 2px 4px $shadow-color;
+  padding: 15px 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  transition: transform 0.3s ease-in-out;
+
+  @media (max-width: 768px) {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 100vh;
+    z-index: 99;
+    transform: translateX(-100%);
+
+    &.sidebar-open {
+      transform: translateX(0);
+    }
+  }
+
+  @media (min-width: 769px) {
+    transform: translateX(0);
+  }
+}
+@mixin nav-item-style($text-color: #67748e, $hover-bg-color: #f53636, $hover-text-color: white) {
+  padding: 12px 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: $text-color;
+  cursor: pointer;
+  transition: background 0.3s ease, color 0.3s ease;
+
+  &:hover {
+    background-color: $hover-bg-color;
+    color: $hover-text-color;
+  }
+}
+
+
+/**************************** MIXINS PARA SEARCH(COMPONENTE DE BUSQUEDA)***********************************/
+
+/* src/styles/shared-styles.scss */
+
+// Mixin general para la barra de búsqueda
+@mixin search-bar-style {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+// Mixin para el contenedor del selector y el campo de entrada
+@mixin search-bar-item-style {
+  flex: 1;
+}
+
+// Mixin para el estilo de los campos de entrada y el mat-select
+@mixin input-field-style($border-color: #f53636, $font-size: 16px) {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid $border-color;
+  border-radius: 5px;
+  font-size: $font-size;
+  outline: none;
+  transition: box-shadow 0.3s ease;
+
+  &:focus {
+    box-shadow: 0 0 8px $border-color;
+  }
+}
+
+// Mixin para el contenedor de entrada con ícono
+@mixin input-wrapper-style {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+// Mixin para el ícono de búsqueda
+@mixin search-icon-style($color: #f53636) {
+  position: absolute;
+  right: 10px;
+  pointer-events: none;
+  color: $color;
+}
+
+// Mixin para los botones de la barra de búsqueda
+@mixin search-bar-buttons-style {
+  display: flex;
+  gap: 10px;
+}
+
+// Mixin para el estilo de los botones de acción
+@mixin action-button-style($border-color: #f53636, $text-color: #67748e, $background-color: #fff) {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 2px solid $border-color;
+  background-color: $background-color;
+  color: $text-color;
+  cursor: pointer;
+  transition: box-shadow 0.3s, background-color 0.3s, color 0.3s;
+
+  &:active {
+    background-color: $border-color;
+    color: #fff;
+    box-shadow: 0 0 10px $border-color;
+
+    mat-icon {
+      color: #fff;
+    }
+  }
+
+  mat-icon {
+    font-size: 18px;
+    color: $text-color;
+    transition: color 0.3s;
+    position: relative;
+    top: 3px;
+  }
+}
+
+// Mixin para el botón de limpiar
+@mixin clear-button-style {
+  @include action-button-style($border-color: #f53636, $text-color: #67748e, $background-color: #fff);
+}
+
+// Mixin para el botón de filtrar
+@mixin filter-button-style {
+  @include action-button-style($border-color: #f53636, $text-color: #67748e, $background-color: #fff);
+}
+
+
+/************************************* MIXINS DE LIST-HERO **********************************************/
+
+// Mixin para el título de la lista de héroes
+@mixin list-heroes-title-style($color: #67748e, $margin-bottom: 6px) {
+  text-align: center;
+  color: $color;
+  margin-bottom: $margin-bottom;
+}
+
+// Mixin para la cuadrícula de héroes
+@mixin heroes-grid-style($gap: 20px) {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $gap;
+  justify-content: space-around;
+}
+
+// Mixin para la tarjeta de héroe individual
+@mixin hero-card-style($width: 320px, $bg-color: #f9f9f9, $border-color: #f53636) {
+  width: $width;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: $bg-color;
+  border: 2px solid $border-color;
+
+  &:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+}
+
+// Mixin para la imagen del avatar del héroe
+@mixin hero-avatar-style($size: 40px) {
+  width: $size;
+  height: $size;
+  border-radius: 50%;
+}
+
+// Mixin para la imagen principal de la tarjeta
+@mixin hero-image-style($width: 70%, $height: 300px, $border-color: #f53636) {
+  width: $width;
+  height: $height;
+  object-fit: cover;
+  object-position: center;
+  border: 2px solid $border-color;
+  border-radius: 10px;
+  display: block;
+  margin: 0 auto;
+}
+
+// Mixin para el contenido de la tarjeta
+@mixin card-content-style($min-height: 60px) {
+  min-height: $min-height;
+}
+
+// Mixin para limitar la descripción a un número de líneas
+@mixin description-limit-style($lines: 4, $max-height: 6em) {
+  display: -webkit-box;
+  -webkit-line-clamp: $lines;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-height: $max-height;
+}
+
+// Mixin para los botones de acción
+@mixin action-btn-style($color: #67748e) {
+  color: $color !important;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 8px 10px;
+  font-size: 14px;
+  transition: background 0.3s ease, color 0.3s ease;
+
+  mat-icon {
+    color: $color;
+    position: relative;
+    right: 2px;
+    transition: color 0.3s ease;
+    font-size: 18px;
+  }
+}
+
+// Mixin para el botón de editar
+@mixin btn-editar-style($border-color: #3c0bde, $hover-bg-color: #3c0bde) {
+  border-radius: 5px;
+  background: #ffffff;
+  color: #67748e;
+  border: 2px solid $border-color;
+  width: 35%;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover, &:focus {
+    background: $hover-bg-color;
+    color: #ffffff;
+    box-shadow: 0 0 8px $hover-bg-color;
+  }
+
+  &:active {
+    background: $hover-bg-color;
+    color: #ffffff;
+    box-shadow: 0 0 12px $hover-bg-color;
+
+    mat-icon {
+      color: #ffffff;
+    }
+  }
+}
+
+// Mixin para el botón de eliminar
+@mixin btn-eliminar-style($border-color: #f53636, $hover-bg-color: #f53636) {
+  border-radius: 5px;
+  background: #ffffff;
+  color: #67748e;
+  border: 2px solid $border-color;
+  width: 35%;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover, &:focus {
+    background: $hover-bg-color;
+    color: #ffffff;
+    box-shadow: 0 0 8px $hover-bg-color;
+  }
+
+  &:active {
+    background: $hover-bg-color;
+    color: #ffffff;
+    box-shadow: 0 0 12px $hover-bg-color;
+
+    mat-icon {
+      color: #ffffff;
+    }
+  }
+}
+
+// Mixin para la paginación
+@mixin pagination-style {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+
+/************************* MIXINS COMPONENTE EDIT *************************************************/
+
+// Mixin para el contenedor de edición de héroes
+@mixin edit-hero-container-style {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  padding: 20px;
+}
+
+// Mixin para el título del héroe
+@mixin hero-title-style($color: #67748e) {
+  text-align: center;
+  margin-bottom: 20px;
+  color: $color;
+}
+
+// Mixin para el formulario de héroe
+@mixin hero-form-style(
+  $max-width: 70em,
+  $bg-color: #fff,
+  $padding: 30px,
+  $border-radius: 8px,
+  $box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1),
+  $border-color: #f53636
+) {
+  width: 100%;
+  height: 100%;
+  max-width: $max-width;
+  background-color: $bg-color;
+  padding: $padding;
+  border-radius: $border-radius;
+  box-shadow: $box-shadow;
+  position: relative;
+  bottom: 1em;
+  border: 2px solid $border-color;
+}
+
+// Mixin para el contenedor de entradas
+@mixin input-container-style {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+// Mixin para el estilo de input y textarea
+@mixin input-textarea-style($border-color: #ccc, $focus-color: #f53636) {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid $border-color;
+  border-radius: 4px;
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+
+  &:focus {
+    outline: none;
+    border-color: $focus-color;
+    box-shadow: 0 0 8px $focus-color;
+  }
+}
+
+// Mixin específico para el área de texto
+@mixin textarea-style($height: 100px) {
+  @include input-textarea-style;
+  resize: none;
+  height: $height;
+}
+
+// Mixin para el contenedor de botones del formulario
+@mixin btns-form-style {
+  display: flex;
+  justify-content: space-around;
+}
+
+// Mixin para los botones de actualizar y cancelar
+@mixin btn-style($border-color: #f53636) {
+  width: 35%;
+  padding: 10px;
+  border-radius: 5px;
+  background: #ffffff;
+  border: 2px solid $border-color;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 8px $border-color;
+  }
+
+  &:active {
+    background: $border-color;
+  }
+
+  &:not(:active) {
+    background: #ffffff;
+  }
+}
+
+// Mixin para el color del texto
+@mixin color-style($default-color: #67748e, $active-color: #ffffff) {
+  color: $default-color;
+  transition: color 0.3s ease;
+
+  .btn_actualizar:active &,
+  .btn_cancelar:active & {
+    color: $active-color;
+  }
+}
+
+// Mixin para la cuadrícula de héroes
+@mixin heroes-grid-style($gap: 15px, $max-width: 800px) {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: $gap;
+  width: 100%;
+  max-width: $max-width;
+  margin-top: 20px;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+// Mixin para la tarjeta de héroe
+@mixin hero-card-style {
+  width: 100%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+// Mixin para la imagen de héroe
+@mixin img-style($width: 20%) {
+  width: $width;
+  height: auto;
+}
+
+// Mixin para el avatar de héroe
+@mixin hero-avatar-style($size: 40px) {
+  height: $size;
+  width: $size;
+  flex-shrink: 0;
+  display: flex;
+}
+
+
+/********************************* MIXINS COMPONENT ADD(AGREGAR HÉROES) **********************************/
+// Mixin para el contenedor de edición de héroes
+@mixin edit-hero-container-style($padding: 20px) {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: $padding;
+}
+
+// Mixin para el título del héroe
+@mixin hero-title-style($color: #67748e, $margin-bottom: 20px) {
+  text-align: center;
+  margin-bottom: $margin-bottom;
+  color: $color;
+}
+
+// Mixin para el formulario de héroe
+@mixin hero-form-style(
+  $width: 100%,
+  $height: 35em,
+  $max-width: 70em,
+  $bg-color: #fff,
+  $padding: 30px,
+  $border-radius: 8px,
+  $box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1),
+  $border-color: #f53636
+) {
+  width: $width;
+  height: $height;
+  max-width: $max-width;
+  background-color: $bg-color;
+  padding: $padding;
+  border-radius: $border-radius;
+  box-shadow: $box-shadow;
+  position: relative;
+  bottom: 1em;
+  border: 2px solid $border-color;
+}
+
+// Mixin para el contenedor de entradas
+@mixin input-container-style($margin-bottom: 15px) {
+  margin-bottom: $margin-bottom;
+  display: flex;
+  flex-direction: column;
+}
+
+// Mixin para el estilo de input y textarea
+@mixin input-textarea-style($border-color: #ccc, $focus-color: #f53636) {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid $border-color;
+  border-radius: 4px;
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+  text-transform: uppercase;
+
+  &:focus {
+    outline: none;
+    border-color: $focus-color;
+    box-shadow: 0 0 8px $focus-color;
+  }
+}
+
+// Mixin específico para el área de texto
+@mixin textarea-style($height: 100px) {
+  @include input-textarea-style;
+  resize: none;
+  height: $height;
+}
+
+// Mixin para el contenedor de botones del formulario
+@mixin btns-form-style {
+  display: flex;
+  justify-content: space-around;
+}
+
+// Mixin para los botones de actualizar y cancelar
+@mixin btn-style($border-color: #f53636) {
+  width: 35%;
+  padding: 10px;
+  border-radius: 5px;
+  background: #ffffff;
+  border: 2px solid $border-color;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 8px $border-color;
+  }
+
+  &:active {
+    background: $border-color;
+  }
+
+  &:not(:active) {
+    background: #ffffff;
+  }
+}
+
+// Mixin para el color del texto de los botones
+@mixin color-style($default-color: #67748e, $active-color: #ffffff) {
+  color: $default-color;
+  transition: color 0.3s ease;
+
+  .btn_actualizar:active &,
+  .btn_cancelar:active & {
+    color: $active-color;
+  }
+}
+
+// Mixin para la vista previa de imagen
+@mixin image-preview-style($margin-bottom: 20px) {
+  display: flex;
+  justify-content: center;
+  margin-bottom: $margin-bottom;
+}
+
+// Mixin para la imagen de héroe pequeña
+@mixin hero-image-small-style($max-width: 150px, $border-color: #3f51b5) {
+  max-width: $max-width;
+  height: auto;
+  border-radius: 8px;
+  border: 2px solid $border-color;
+}
+

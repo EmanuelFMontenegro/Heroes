@@ -123,7 +123,7 @@ export class ListHeroesComponent implements OnInit {
   }
 
   onFilterApplied(searchText: string): void {
-    console.log('Lo que busca:', searchText);
+
 
     // Intentamos convertir el texto de búsqueda a un número
     const parsedId = Number(searchText);
@@ -150,7 +150,7 @@ export class ListHeroesComponent implements OnInit {
         this.heroService.getHeroById(String(parsedId)).subscribe(
           // Convertir parsedId a string
           (hero) => {
-            console.log('Héroe encontrado por ID:', hero);
+           
             this.filteredHeroes = [hero]; // Mostrar solo el héroe encontrado
           },
           (error) => {

@@ -1,111 +1,47 @@
+@import '../../../shared/shared-styles.scss';
+
 .edit-hero-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
+  @include edit-hero-container-style;
 }
 
 .hero-title {
-  text-align: center;
-  margin-bottom: 20px;
-  color: #67748e;
+  @include hero-title-style;
 }
 
 .hero-form {
-  width: 100%;
-  height: 35em;
-  max-width: 70em;
-  background-color: #fff;
-  padding: 30px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  position: relative;
-  bottom: 1em;
-  border:2px solid #f53636
+  @include hero-form-style;
 }
 
 .input-container {
-  margin-bottom: 15px;
-  display: flex;
-  flex-direction: column;
-
+  @include input-container-style;
 }
 
 input,
 textarea {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  transition: box-shadow 0.3s ease, border-color 0.3s ease;
-
-  &:focus {
-    outline: none;
-    border-color: #f53636;
-    box-shadow: 0 0 8px #f53636;
-  }
+  @include input-textarea-style;
 }
 
 textarea {
-  resize: none;
-  height: 100px;
+  @include textarea-style;
 }
-input, textarea {
-  text-transform: uppercase;
-}
-
 
 .btns_form {
-  display: flex;
-  justify-content: space-around;
+  @include btns-form-style;
 }
 
 .btn_actualizar,
 .btn_cancelar {
-  width: 35%;
-  padding: 10px;
-  border-radius: 5px;
-  background: #ffffff;
-  border: 2px solid #f53636;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
-
-  &:focus {
-    outline: none;
-    box-shadow: 0 0 8px #f53636;
-  }
-
-  &:active {
-    background: #f53636;
-  }
-
-  &:not(:active) {
-    background: #ffffff;
-  }
+  @include btn-style;
 }
 
 .color {
-  color: #67748e; /* Color gris por defecto */
-  transition: color 0.3s ease; /* Transición suave del color */
-
-  .btn_actualizar:active &,
-  .btn_cancelar:active & {
-    color: #ffffff;
-  }
+  @include color-style;
 }
 
 .image-preview {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 20px;
+  @include image-preview-style;
 }
 
 .hero-image-small {
-  max-width: 150px;
-  height: auto;
-  border-radius: 8px;
-  border: 2px solid #3f51b5;
+  @include hero-image-small-style;
 }

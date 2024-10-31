@@ -1,17 +1,14 @@
+<div class="sidebar-toggle" (click)="toggleSidebar()">
+  <mat-icon>menu</mat-icon>
+</div>
 
-<div class="sidebar">
+<div class="sidebar" [ngClass]="{ 'sidebar-open': isSidebarOpen }">
   <div class="logo-container">
     <h4>Super Héroes</h4>
   </div>
-
   <ul class="nav-list">
-    <li
-      *ngFor="let item of menuItems"
-      class="nav-item"
-      routerLinkActive="active"
-      [routerLink]="item.path"
-      (click)="setActive(item.title)"
-    >
+    <li *ngFor="let item of menuItems" class="nav-item" routerLinkActive="active" [routerLink]="item.path"
+      (click)="toggleSidebar()">
       <mat-icon>{{ item.icon }}</mat-icon>
       {{ item.title }}
     </li>

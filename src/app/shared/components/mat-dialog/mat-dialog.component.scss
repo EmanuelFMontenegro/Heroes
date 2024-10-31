@@ -1,70 +1,73 @@
+@import '../../shared-styles.scss';
+
+
+
+/******--------------------- mixins para Matdialog--------------******/
+
 .dialog-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 27em;
-  padding: 30px;
-  border: 2px solid #f53636;
-  border-radius: 27px;
-  background-color: #fff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  transition: all 0.3s ease;
-
-
-  @media (max-width: 600px) {
-    width: 100%; /* Ajuste responsivo para pantallas pequeñas */
-  }
+  @include dialog-style;
 }
-
 .dialog-title {
+  @include typography(1.55rem, bold, #f53636);
   text-align: center;
   margin-bottom: 15px;
-  color: #f53636; /* Título en rojo */
-  font-size: 24px;
-  font-weight: bold;
 }
-
 .dialog-message {
+  @include typography(20px, normal, #67748e);
   text-align: center;
-  font-size: 16px;
   margin-bottom: 20px;
-  color: #333;
 }
 
 .dialog-actions {
   display: flex;
   justify-content: space-around;
-  width: 100%;
-}
-
-.btn-cancelar, .btn-aceptar {
-  width: 35%;
-  padding: 5px;
-  border-radius: 8px;
-  transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .btn-cancelar {
-  background-color: #ffffff;
-  border: 2px solid #0ea23b;
-  color: #0ea23b;
-
-  &:hover {
-    background-color: #0ea23b;
-    color: #ffffff;
-    box-shadow: 0 0 8px #0ea23b;
-  }
+  @include button-style(#0ea23b); // Usa un color adecuado
 }
 
 .btn-aceptar {
+  @include button-style(#f53636); // Usa un color adecuado
+}
+
+/******--------------------- mixins para sidebar--------------******/
+
+
+
+// Mixin para contenedores centrados
+@mixin center-content($flex-direction: column, $gap: 15px) {
+  display: flex;
+  flex-direction: $flex-direction;
+  align-items: center;
+  justify-content: center;
+  gap: $gap;
+}
+
+// Mixin para estilos de botón
+@mixin button-style($border-color) {
   background-color: #ffffff;
-  border: 2px solid #f53636;
-  color: #f53636;
+  border: 2px solid $border-color;
+  color: $border-color;
+  padding: 5px;
+  border-radius: 8px;
+  transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
 
   &:hover {
-    background-color: #f53636;
+    background-color: $border-color;
     color: #ffffff;
-    box-shadow: 0 0 8px #f53636;
+    box-shadow: 0 0 8px $border-color;
+  }
+}
+
+// Mixin para hacer el layout responsivo
+@mixin responsive-sidebar {
+  @media (max-width: 768px) {
+    flex-direction: column;
+
+    .filter-buttons {
+      flex-direction: column;
+      width: 100%;
+    }
   }
 }

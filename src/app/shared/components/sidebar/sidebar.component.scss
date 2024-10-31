@@ -1,83 +1,17 @@
-/* Contenedor principal del sidebar */
+@import '../../shared-styles.scss';
+
+.sidebar-toggle {
+  @include sidebar-toggle-style;
+}
+
 .sidebar {
-  width: 260px;
-  height: 100vh;
-  background-color: white;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  padding: 15px 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  @include sidebar-style;
 }
 
-/* Logo container */
-.logo-container {
-  padding: 0 15px 20px 15px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.logo-container img {
-  height: 30px;
-}
-
-.logo-text {
-  color: #333;
-  font-size: 18px;
-  font-weight: 500;
-}
-
-/* Lista de navegación */
 .nav-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+  @include nav-list-style;
 }
 
-/* Items del menú */
 .nav-item {
-  padding: 12px 15px;
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  color: #67748e; /* Color de texto por defecto */
-  transition: all 0.3s ease; /* Transición suave */
-  cursor: pointer;
-  font-size: 14px;
-}
-
-/* Efecto hover */
-.nav-item:hover {
-  background-color: #f53636; /* Fondo rojo al hacer hover */
-  color: white; /* Color del texto al hacer hover */
-}
-
-/* Estilo activo para los items */
-.nav-item.active {
-  background-color: #f53636; /* Fondo rojo */
-  color: white; /* Color del texto */
-  margin: 0 15px; /* Margen lateral */
-  border-radius: 8px; /* Esquinas redondeadas */
-  padding: 12px 15px; /* Espaciado interno */
-}
-
-/* Iconos */
-.nav-item i {
-  font-size: 18px;
-  opacity: 0.8;
-}
-
-/* Botón Upgrade */
-.upgrade-button {
-  margin: 20px 15px;
-  padding: 12px 15px;
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  color: #67748e;
-  border-top: 1px solid #eee;
-}
-
-.upgrade-button:hover {
-  color: #344767;
-  cursor: pointer;
+  @include nav-item-style;
 }

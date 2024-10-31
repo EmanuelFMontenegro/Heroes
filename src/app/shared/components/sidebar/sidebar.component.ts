@@ -1,17 +1,12 @@
-// sidebar.component.ts
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common'; // Importa CommonModule
+import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-sidebar',
   standalone: true,
-  imports: [
-    CommonModule, 
-    RouterModule,
-    MatIconModule,
-  ],
+  imports: [CommonModule, RouterModule, MatIconModule],
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.scss'],
 })
@@ -22,14 +17,12 @@ export class SidebarComponent {
       title: 'Listar Héroes',
       icon: 'assignment',
     },
-    { path: '/dashboard/detail-hero', title: 'Detalle Héroe', icon: 'info' },
     { path: '/dashboard/add-hero', title: 'Agregar Héroe', icon: 'group_add' },
-    { path: '/dashboard/delete-hero', title: 'Eliminar Héroe', icon: 'delete' },
   ];
 
-  activeItem: string = '';
+  isSidebarOpen = false;
 
-  setActive(item: string) {
-    this.activeItem = item;
+  toggleSidebar() {
+    this.isSidebarOpen = !this.isSidebarOpen;
   }
 }
